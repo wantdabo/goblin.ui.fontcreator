@@ -1,4 +1,4 @@
-﻿using GoblinFramework.UI.FontCreator;
+using GoblinFramework.UI.FontCreator;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -37,6 +37,7 @@ namespace GoblinFramework.UI.FontCreator
         public override void OnInspectorGUI()
         {
             if (null == reorderableList) return;
+
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("FontName:", GUILayout.Width(65));
             var fontNameProperty = serializedObject.FindProperty("fontName");
@@ -47,6 +48,13 @@ namespace GoblinFramework.UI.FontCreator
             EditorGUILayout.LabelField("Pading:", GUILayout.Width(65));
             var paddingProperty = serializedObject.FindProperty("padding");
             paddingProperty.intValue = EditorGUILayout.IntField(paddingProperty.intValue);
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Tracking:", GUILayout.Width(65));
+            var trackingProperty = serializedObject.FindProperty("tracking");
+            float newTracking = EditorGUILayout.FloatField(trackingProperty.floatValue);
+            trackingProperty.floatValue = newTracking;
             EditorGUILayout.EndHorizontal();
 
             serializedObject.ApplyModifiedProperties();
@@ -82,7 +90,7 @@ namespace GoblinFramework.UI.FontCreator
                 width += sprite.sprite.rect.width + padding;
                 maxHeight = Mathf.Max(maxHeight, sprite.sprite.rect.height);
             }
-            Texture2D texture = new Texture2D((int)width , (int)maxHeight + 10, TextureFormat.RGBA32, false);
+            Texture2D texture = new Texture2D((int)width, (int)maxHeight + 10, TextureFormat.RGBA32, false);
             texture.name = "TEMP_FONT_TEXTURE";
 
             Color32 alphaColor = Color.white;
@@ -147,10 +155,10 @@ namespace GoblinFramework.UI.FontCreator
             #endregion
 
             #region Make Font
-            Font font = new Font();
+            var tracking = serializedObject.FindProperty("tracking").floatValue;
+            var font = new Font();
             font.name = fontName;
             font.material = mat;
-
             CharacterInfo[] characterInfos = new CharacterInfo[gSprites.Length];
             for (int i = 0; i < characterInfos.Length; i++)
             {
@@ -161,11 +169,13 @@ namespace GoblinFramework.UI.FontCreator
                     index = gSprites[i].index.ToCharArray()[0],
                     uv = new Rect(new Vector2(UV_XY_WH.x, UV_XY_WH.y), new Vector2(UV_XY_WH.z, UV_XY_WH.w)),
                     vert = new Rect(Vector2.zero, VERT_WH),
-                    advance = (int)VERT_WH.x,
+                    advance = (int)(VERT_WH.x * tracking),
                 };
             }
             font.characterInfo = characterInfos;
-            AssetDatabase.CreateAsset(font, $"{path}{fontName}.fontsettings");
+            var fontSavePath = $"{path}{fontName}.fontsettings";
+            if (false == string.IsNullOrEmpty(AssetDatabase.AssetPathToGUID(fontSavePath))) AssetDatabase.DeleteAsset(fontSavePath);
+            AssetDatabase.CreateAsset(font, fontSavePath);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             #endregion
