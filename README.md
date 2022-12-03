@@ -34,6 +34,8 @@ now, enjoy your develop.
 ![step_7.png](/images/step_7.png)
 # 效果图
 
+<details>
+
 ## *step 1
 ![step_1.png](/images/step_1.png)
 ## *step 2
@@ -46,4 +48,6 @@ now, enjoy your develop.
 ![step_5.png](/images/step_5.png)
 ## *step 
 ![step_6.png](/images/step_6.png)
+
+</details>
 
