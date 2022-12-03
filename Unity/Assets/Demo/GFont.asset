@@ -14,30 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fontName: GFont
   padding: 4
+  tracking: 1
   sprites:
   - index: 0
-    sprite: {fileID: 21300000, guid: 56a3af791c77c2e4db9e8260ecb69ff2, type: 3}
+    texture: {fileID: 2800000, guid: 56a3af791c77c2e4db9e8260ecb69ff2, type: 3}
   - index: 1
-    sprite: {fileID: 21300000, guid: 35fa7a97442a3dc49bf407b5db252521, type: 3}
+    texture: {fileID: 2800000, guid: 35fa7a97442a3dc49bf407b5db252521, type: 3}
   - index: 2
-    sprite: {fileID: 21300000, guid: c2ae3c5043632d54d9db9ae476efa07a, type: 3}
+    texture: {fileID: 2800000, guid: c2ae3c5043632d54d9db9ae476efa07a, type: 3}
   - index: 3
-    sprite: {fileID: 21300000, guid: cdc8601120d687b4ca63e8a81130be6e, type: 3}
+    texture: {fileID: 2800000, guid: cdc8601120d687b4ca63e8a81130be6e, type: 3}
   - index: 4
-    sprite: {fileID: 21300000, guid: 0903326ce2b6e504fa2531cf393377b6, type: 3}
+    texture: {fileID: 2800000, guid: 0903326ce2b6e504fa2531cf393377b6, type: 3}
   - index: 5
-    sprite: {fileID: 21300000, guid: f25a9b5a0dea61a458f344d94f264264, type: 3}
+    texture: {fileID: 2800000, guid: f25a9b5a0dea61a458f344d94f264264, type: 3}
   - index: 6
-    sprite: {fileID: 21300000, guid: 6ebbc42f53968b646b1a16f2b3f7faeb, type: 3}
+    texture: {fileID: 2800000, guid: 6ebbc42f53968b646b1a16f2b3f7faeb, type: 3}
   - index: 7
-    sprite: {fileID: 21300000, guid: 78fe88267801c344999f815ae8a439b8, type: 3}
+    texture: {fileID: 2800000, guid: 78fe88267801c344999f815ae8a439b8, type: 3}
   - index: 8
-    sprite: {fileID: 21300000, guid: d16b6778959955848baaa6c9fac4682d, type: 3}
+    texture: {fileID: 2800000, guid: d16b6778959955848baaa6c9fac4682d, type: 3}
   - index: 9
-    sprite: {fileID: 21300000, guid: 6c2d6a71c589794498cb8dacf1c360d2, type: 3}
+    texture: {fileID: 2800000, guid: 6c2d6a71c589794498cb8dacf1c360d2, type: 3}
   - index: a
-    sprite: {fileID: 21300000, guid: 81b71231175d4f841843cc035f93ef23, type: 3}
+    texture: {fileID: 2800000, guid: 81b71231175d4f841843cc035f93ef23, type: 3}
   - index: b
-    sprite: {fileID: 21300000, guid: 327cdca4c2f789f499bf2ed283b91cff, type: 3}
+    texture: {fileID: 2800000, guid: 327cdca4c2f789f499bf2ed283b91cff, type: 3}
   - index: c
-    sprite: {fileID: 21300000, guid: 56897ec6046127e4787ead6c93272ca0, type: 3}
+    texture: {fileID: 2800000, guid: 56897ec6046127e4787ead6c93272ca0, type: 3}
