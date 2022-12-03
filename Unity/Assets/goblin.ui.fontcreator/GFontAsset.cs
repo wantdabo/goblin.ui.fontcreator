@@ -9,7 +9,7 @@ namespace GoblinFramework.UI.FontCreator
     public struct GSprite
     {
         public string index;
-        public Sprite sprite;
+        public Texture2D texture;
     }
 
     [CreateAssetMenu(fileName = "GFontAsset", menuName = "Create New GFont", order = 1)]
