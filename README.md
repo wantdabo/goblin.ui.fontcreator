@@ -9,6 +9,7 @@
 - 3.点击生成按钮（generate font）
 
 *注意 texture 需要开启 read/write
+
 好了，开始你的愉快开发咯！
 
 ## English
