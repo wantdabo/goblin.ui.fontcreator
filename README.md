@@ -6,7 +6,7 @@
 
 **[goblin.ui.fontcreator](https://github.com/wantdabo/goblin.ui.fontcreator) 可以傻瓜式的处理这个问题，一站式。**
 
-### Chinese 
+### 中文
 - 1.右键，创建 GFont（Create/Create New GFont）
 - 2.选中创建出来的 GFont
   - a.设置 FontName
