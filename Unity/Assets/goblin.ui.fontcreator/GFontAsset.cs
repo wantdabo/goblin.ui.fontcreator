@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +18,7 @@ namespace GoblinFramework.UI.FontCreator
     {
         public string fontName = "GFont";
         public int padding = 4;
+        public float tracking = 1f;
 
         [SerializeField]
         public List<GSprite> sprites;
