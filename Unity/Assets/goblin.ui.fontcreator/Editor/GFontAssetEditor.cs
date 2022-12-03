@@ -74,11 +74,11 @@ namespace GoblinFramework.UI.FontCreator
             {
                 var property = spritesProperty.GetArrayElementAtIndex(i);
                 var indexProperty = property.FindPropertyRelative("index");
-                var spriteProperty = property.FindPropertyRelative("sprite");
+                var spriteProperty = property.FindPropertyRelative("texture");
                 gSprites[i] = new GSprite()
                 {
                     index = indexProperty.stringValue,
-                    sprite = spriteProperty.objectReferenceValue as Sprite,
+                    texture = spriteProperty.objectReferenceValue as Texture2D,
                 };
             }
 
@@ -87,8 +87,8 @@ namespace GoblinFramework.UI.FontCreator
             float maxHeight = int.MinValue;
             foreach (var sprite in gSprites)
             {
-                width += sprite.sprite.rect.width + padding;
-                maxHeight = Mathf.Max(maxHeight, sprite.sprite.rect.height);
+                width += sprite.texture.width + padding;
+                maxHeight = Mathf.Max(maxHeight, sprite.texture.height);
             }
             Texture2D texture = new Texture2D((int)width, (int)maxHeight + 10, TextureFormat.RGBA32, false);
             texture.name = "TEMP_FONT_TEXTURE";
@@ -102,16 +102,15 @@ namespace GoblinFramework.UI.FontCreator
                     texture.SetPixel(i, j, alphaColor);
                 }
             }
-
             float offset = 0;
             List<Vector4> UV_XY_WH_LIST = new List<Vector4>();
             List<Vector2> VERT_WH_LIST = new List<Vector2>();
             foreach (var gSprite in gSprites)
             {
-                var tex = gSprite.sprite.texture;
-                for (int i = 0; i < gSprite.sprite.rect.width; i++)
+                var tex = gSprite.texture;
+                for (int i = 0; i < tex.width; i++)
                 {
-                    for (int j = 0; j < gSprite.sprite.rect.height; j++)
+                    for (int j = 0; j < tex.height; j++)
                     {
                         var color = tex.GetPixel(i, j);
                         texture.SetPixel((int)offset + i, j, color);
@@ -125,12 +124,12 @@ namespace GoblinFramework.UI.FontCreator
                     y = 0,
 
                     // UV W
-                    z = gSprite.sprite.rect.width / texture.width,
+                    z = tex.width / (float)texture.width,
                     // UV H
-                    w = gSprite.sprite.rect.height / texture.height,
+                    w = tex.height / (float)texture.height,
                 });
-                VERT_WH_LIST.Add(new Vector2(gSprite.sprite.rect.width, -gSprite.sprite.rect.height));
-                offset += gSprite.sprite.rect.width + padding;
+                VERT_WH_LIST.Add(new Vector2(tex.width, -tex.height));
+                offset += tex.width + padding;
             }
             texture.Apply();
 
