@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -25,7 +25,7 @@ namespace GoblinFramework.UI.FontCreator
             indexProperty.stringValue = EditorGUI.TextField(indexRect, indexProperty.stringValue);
             if (indexProperty.stringValue.Length > 1) indexProperty.stringValue = indexProperty.stringValue.Substring(0, 1);
 
-            var spriteProperty = property.FindPropertyRelative("sprite");
+            var spriteProperty = property.FindPropertyRelative("texture");
             spriteProperty.objectReferenceValue = EditorGUI.ObjectField(spriteRect, spriteProperty.objectReferenceValue, typeof(Object), false);
         }
     }
