@@ -11,7 +11,7 @@
 - 2.选中创建出来的 GFont
   - a.设置 FontName
   - b.设置 Padding 与 Tracking
-  - c.拖拽映射好 sprite 与 char 的关系。char 使用（ASCII）
+  - c.拖拽映射好 texture 与 char 的关系。char 使用（ASCII）
 - 3.点击生成按钮（generate font）
 
 *注意 texture 需要开启 read/write
@@ -23,7 +23,7 @@
 - 2.select gfont
   - a.set font name
   - b.settings your padding、tracking.
-  - c.mapping sprite with char(ascii)
+  - c.mapping texture with char(ascii)
 - 3.click generate font
 
 *tips texture need support read/write
