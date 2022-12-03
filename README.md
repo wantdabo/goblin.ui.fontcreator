@@ -45,7 +45,7 @@ now, enjoy your develop.
 ![step_4.png](/images/step_4.png)
 ## *step 5
 ![step_5.png](/images/step_5.png)
-## *step 
+## *step 6
 ![step_6.png](/images/step_6.png)
 
 </details>
