@@ -128,7 +128,9 @@ namespace GoblinFramework.UI.FontCreator
 
             string fontName = serializedObject.FindProperty("fontName").stringValue;
             var assetPath = AssetDatabase.GetAssetPath(serializedObject.targetObject);
-            var path = assetPath.Replace($"{fontName}.asset", "");
+            FileInfo fileInfo = new FileInfo(Application.dataPath.Replace("Assets", "") + assetPath);
+
+            var path = assetPath.Replace($"{fileInfo.Name}", "");
 
             var texPath = Application.dataPath.Replace("Assets", "") + $"{path}{fontName}.png";
             SaveTexture(texture, texPath);
