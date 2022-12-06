@@ -33,20 +33,3 @@ now, enjoy your develop.
 ![step_7.png](/images/step_7.png)
 # 效果图
 
-<details>
-
-## *step 1
-![step_1.png](/images/step_1.png)
-## *step 2
-![step_2.png](/images/step_2.png)
-## *step 3
-![step_3.png](/images/step_3.png)
-## *step 4
-![step_4.png](/images/step_4.png)
-## *step 5
-![step_5.png](/images/step_5.png)
-## *step 6
-![step_6.png](/images/step_6.png)
-
-</details>
-
