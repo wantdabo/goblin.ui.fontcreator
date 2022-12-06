@@ -30,6 +30,6 @@
 
 now, enjoy your develop.
 
-![step_7.png](/images/step_7.png)
+![step_7.png](/images/new_step_7.png)
 # 效果图
 
