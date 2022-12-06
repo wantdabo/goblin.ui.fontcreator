@@ -138,19 +138,11 @@ namespace GoblinFramework.UI.FontCreator
             FileInfo fileInfo = new FileInfo(Application.dataPath.Replace("Assets", "") + assetPath);
 
             var path = assetPath.Replace($"{fileInfo.Name}", "");
-
-            var texPath = Application.dataPath.Replace("Assets", "") + $"{path}{fontName}.png";
-            SaveTexture(texture, texPath);
-            DestroyImmediate(texture);
-
             #endregion
 
             #region Make Material
             Material mat = new Material(Shader.Find("UI/Unlit/Transparent"));
-            mat.SetTexture("_MainTex", AssetDatabase.LoadAssetAtPath<Texture2D>($"{path}{fontName}.png"));
-            AssetDatabase.CreateAsset(mat, $"{path}/{fontName}.mat");
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            mat.SetTexture("_MainTex", texture);
             #endregion
 
             #region Make Font
@@ -174,22 +166,14 @@ namespace GoblinFramework.UI.FontCreator
             font.characterInfo = characterInfos;
             var fontSavePath = $"{path}{fontName}.fontsettings";
             if (false == string.IsNullOrEmpty(AssetDatabase.AssetPathToGUID(fontSavePath))) AssetDatabase.DeleteAsset(fontSavePath);
+
             AssetDatabase.CreateAsset(font, fontSavePath);
+            AssetDatabase.AddObjectToAsset(mat, fontSavePath);
+            AssetDatabase.AddObjectToAsset(texture, fontSavePath);
+
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             #endregion
-        }
-
-        private void SaveTexture(Texture2D tex, string path)
-        {
-            var bytes = tex.EncodeToPNG();
-            var file = File.Open(path, FileMode.Create);
-            var binary = new BinaryWriter(file);
-            binary.Write(bytes);
-            file.Close();
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
         }
     }
 }
